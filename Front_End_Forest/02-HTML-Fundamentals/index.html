@@ -1,0 +1,180 @@
+<!-- 声明doc类型是html，为了告诉浏览器我们这个文件使用的是HTML -->
+<!DOCTYPE html>
+<!-- 创建HTML元素，HTML中head和body不可少，但他们其中里的内容是可选的。其中HTML的lang属性是声明该网页所用语言，en表示英语 -->
+<html lang="en">
+  <!-- head里面的东西再浏览器中不可见，head里面包括标题，以及页面的一些附加信息 -->
+  <head>
+    <!-- meta表示元数据，其指的是数据的数据。该属性是指定字符集UTF-8， -->
+    <meta charset="UTF-8" />
+    <title>The Basic Language of the web: HTML</title>
+  </head>
+  <!-- body中的元素都是页面中可见的 -->
+  <body>
+    <!-- h1~h6大小参考 -->
+    <!-- <h1>The Basic Language of the web: HTML</h1>
+    <h2>The Basic Language of the web: HTML</h2>
+    <h3>The Basic Language of the web: HTML</h3>
+    <h4>The Basic Language of the web: HTML</h4>
+    <h5>The Basic Language of the web: HTML</h5>
+    <h6>The Basic Language of the web: HTML</h6> -->
+
+    <!-- 真正的代码内容，此时HTML就有两个子元素，一个是header，另一个是article -->
+
+    <!-- header是网页标题的容器。它可以在web的顶部，也可以表示一些较小单元的顶部。添加header后，虽然布局在视觉上没有什么差别，但是确是可以告诉浏览器这是我们网页的标题 -->
+    <header>
+      <!-- 每一个页面只能有一个h1标题 -->
+      <h1>📘 The Code Magazine</h1>
+
+      <!-- nav标签是导航元素，在HTML5之前都是用div来分层，而之后就添加了语义html，例如nav,header和p等的标签 -->
+      <nav>
+        <!-- 网站网页之间的跳转链接 -->
+        <a href="blog.html">Blog</a>
+        <!-- 当你只在一个a标签中写内容的时候，没有定义href元素，那么这个内容就没有蓝色也没与下划线，只会是一个普通文本，这就是因为a是一个锚元素 -->
+        <a href="#">Challenges</a>
+        <a href="#">Flexbok</a>
+        <a href="#">CSS Grid</a>
+      </nav>
+    </header>
+
+    <!-- article是网页内容/文章的容器，其意义是用标签来标记文章的内容 -->
+    <article>
+      <!-- header和article可以嵌套使用 -->
+      <header>
+        <h2>The Basic Language of the Web: HTML</h2>
+
+        <img
+          src="./img/laura-jones.jpg"
+          alt="Headshot of Laura Jones"
+          width="64"
+          height="64"
+        />
+
+        <!-- 标签b可以加粗字体，但html5之后更新为strong标签。是因为b标签其实并没有任何语义，而strong标签有语义，代表围起来的信息是更重要的文本 -->
+        <p>Posted by <strong>Laura Jones</strong> on Monday, June 21st 2027</p>
+
+        <!-- img标签没有任何内容，也没有结束标签，但有元素属性。其一是src路径属性，其二的alt属性代替文本，是一些描述图像内容的文本，
+        它十分重要：例如搜索引擎化，这可以让像谷歌的浏览器更好去了解图像的内容 ；
+        其次可以通过描述内容让盲人阅读此网站；
+        再者当图像加载不出来时，描述文本也可以让读者知道该图像的大概内容-->
+        <img
+          src="./img/post-img.jpg"
+          alt="HTML code on a screen"
+          width="500"
+          height="200"
+        />
+        <!-- 对于长宽属性，只需要设置一个就可以，电脑会自动保持纵横比。但如果想要设置，为了图片显示不变形，可以先查看原图的比例 -->
+      </header>
+
+      <p>
+        All modern websites and web applications are built using three
+        <!-- 标签i可以让字体变为斜体，但现在常用的是em标签，其语义是强调 -->
+        <em>fundamental</em>
+        technologies: HTML, CSS and JavaScript. These are the languages of the
+        web.
+      </p>
+
+      <p>
+        In this post, let's focus on HTML. We will learn what HTML is all about,
+        and why you too should learn it.
+      </p>
+
+      <h3>What is HTML?</h3>
+      <p>
+        HTML stands for <strong>H</strong>yper<strong>T</strong>ext
+        <strong>M</strong>arkup <strong>L</strong>anguage. It's a markup
+        language that web developers use to structure and describe the content
+        of a webpage (not a programming language).
+      </p>
+
+      <p>
+        HTML consists of elements that describe different types of content:
+        paragraphs, links, headings, images, video, etc. Web browsers understand
+        HTML and render HTML code as websites.
+      </p>
+
+      <!-- p标签的语义是段落 -->
+      <p>In HTML, each element is made up of 3 parts:</p>
+
+      <!-- 创建有序列表，使用ol标签。ol为父元素，li为子元素 -->
+      <ol>
+        <li>The opening tag</li>
+        <li>The closing tag</li>
+        <li>The actual element</li>
+      </ol>
+
+      <!-- 链接有两种：其一是网站内页面跳转链接，另一种是与网站之外联系的链接 -->
+      <!-- a是一个锚元素，表示超链接。href属性表示的是链接地址，令target等于_blank就可以让跳转链接显示在一个新的页面 -->
+      <p>
+        You can learn more at the
+        <a
+          href="https://developer.mozilla.org/zh-CN/docs/Glossary/HTML"
+          target="_blank"
+        >
+          MDN Web Docs </a
+        >.
+      </p>
+
+      <!-- 但可以有很多个h3标题，它可以是我们一个网页内容中的小标题 -->
+      <h3>Why should you learn HTML?</h3>
+
+      <p>
+        There are countless reasons for learning the fundamental language of the
+        web. Here are 5 of them:
+      </p>
+
+      <!-- 创建无序列表，使用ul -->
+      <ul>
+        <li>To be able to use the fundamental web dev language</li>
+        <li>
+          To hand-craft beautiful websites instead of relying on tools like
+          Worpress or Wix
+        </li>
+        <li>To build web applications</li>
+        <li>To impress friends</li>
+        <li>To have fun 😃</li>
+      </ul>
+
+      <p>Hopefully you learned something new here. See you next time!</p>
+    </article>
+
+    <!-- aside标签通常包括的内容是一些次要信息，例如此网站中，aside的内容是一些相关的帖子 -->
+    <aside>
+      <h4>Related posts</h4>
+      <ul>
+        <li>
+          <img
+            src="./img/related-1.jpg"
+            alt="A man is working"
+            width="75"
+            height="75"
+          /><a href="#">How to Learn Web Development</a>
+          <p>By Jonas Schmedtmann</p>
+        </li>
+        <li>
+          <img
+            src="./img/related-2.jpg"
+            alt="Lighting"
+            width="75"
+            height="75"
+          /><a href="#">The Unknown Powers of CSS</a>
+          <p>By Jim Dillon</p>
+        </li>
+        <li>
+          <img
+            src="./img/related-3.jpg"
+            alt="JavaScript code on a screen"
+            width="75"
+            height="75"
+          /><a href="#">Why JavaScript is Awesome</a>
+          <p>By Matilda</p>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- footer里的文本可以是创造一个p段落来放置，或者也可以直接在footer里面放置 -->
+    <footer>
+      <!-- &copy;是版权图标cHTML实体 -->
+      Copyring &copy; 2027 by The Code Magezine.
+    </footer>
+  </body>
+</html>
