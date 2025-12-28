@@ -1,60 +1,15 @@
-* {
-  /* border-top: 10px solid #1098ad; */
-  margin: 0;
-  padding: 0;
-}
-
-/* PAGE SECTIONS */
+/* 在CSS规则中，先声明选择器名称，然后在花括号里面添加属性以及相应的属性值 */
+/* body是整个HTML文件的父元素，但是这个字体是不会变成红色的，因为继承是比较容易被覆盖的，继承的优先级最低 */
 body {
   color: #444;
+  /* 字体系列,sans-serif是无衬线字体，系统默认的是由衬线字体即serif */
   font-family: sans-serif;
-
+  /* body中的样式一般就是希望所有文字都可以有的，但并非所有样式都可以被继承 */
   border-top: 10px solid #1098ad;
-  position: relative;
+  /* border-top就不会被继承 */
 }
 
-.container {
-  width: 800px;
-  /* margin-left: auto;
-  margin-right: auto; */
-  margin: 0 auto;
-}
-
-.main-header {
-  background-color: #f7f7f7;
-  /* padding: 20px;
-  padding-left: 40px;
-  padding-right: 40px; */
-  padding: 20px 40px;
-  margin-bottom: 60px;
-  /* height: 80px; */
-}
-
-nav {
-  font-size: 18px;
-  /* text-align: center; */
-}
-
-article {
-  margin-bottom: 60px;
-}
-
-.post-header {
-  margin-bottom: 40px;
-  /* position: relative; */
-}
-
-aside {
-  background-color: #f7f7f7;
-  border-top: 5px solid #1098ad;
-  border-bottom: 5px solid #1098ad;
-  /* padding-top: 50px;
-  padding-bottom: 50px; */
-  padding: 50px 0;
-  width: 500px;
-}
-
-/* SMALLER ELEMENTS */
+/* 组合选择器法：选择多个选择器，实现相同的代码部分，减少代码的冗余度 */
 h1,
 h2,
 h3 {
@@ -62,54 +17,55 @@ h3 {
 }
 
 h1 {
+  /* 字体大小，px是像素值，相对于物理屏幕的像素大小 */
   font-size: 26px;
+  /* 文本转换,uppercase是转换为大写 */
   text-transform: uppercase;
+  /* 文本形式,italic斜体 */
   font-style: italic;
 }
 
+/* h1虽然是文章标题，但不代表一定是最大的,故h1是有关于他的语义而非外观 */
 h2 {
   font-size: 40px;
-  margin-bottom: 30px;
 }
 
 h3 {
   font-size: 30px;
-  margin-bottom: 20px;
-  margin-top: 40px;
 }
 
 h4 {
   font-size: 20px;
   text-transform: uppercase;
+  /* 文本对齐属性,center是使其在其父元素的中间部位 */
   text-align: center;
 }
 
 p {
+  /* 现在学习设置的字体大小比较的随机，后面会学习系统相关知识，这样就可以基本自动找出我们应该使用的字体大小 */
   font-size: 22px;
+  /* 行高，1.5意味着行高是字体大小的1.5倍。默认情况下，行高为1 */
   line-height: 1.5;
-  margin-bottom: 15px;
+  /* 写到这里会发现，在页面里那些没有设置的strong，em和a元素都获得了和p一样的样式，这就是继承，后面会专门来讲 */
 }
 
-ul,
-ol {
-  margin-left: 50px;
-  margin-bottom: 20px;
-}
-
+/* 注意设置的不是ol和ul元素，他们是列表的父元素 */
 li {
+  /* 字体大小默认是16px */
   font-size: 20px;
-  margin-bottom: 10px;
-  /* display: inline; */
 }
 
-li:last-child {
-  margin-bottom: 0;
-}
-
+/* 后代选择器,在此处的应用则是在页脚里面的p元素 */
 /* footer p {
   font-size: 16px;
 } */
 
+#copyright {
+  font-size: 16px;
+}
+
+/* 嵌套后代选择器,这样就不会让第一个header里面的p的“Test Paragraph”也变成斜体 */
+/* 但这样的方式会使得我们的代码难以维护，如果我们还有其他的article呢？故这里引入取名的概念 */
 /* article header p {
   font-style: italic;
 } */
@@ -119,19 +75,200 @@ li:last-child {
   font-size: 18px;
 }
 
-#copyright {
-  font-size: 16px;
-}
-
+/* 给标签取名字除了ID之外，还可以是Class。但两者有区别：一个ID名只能用一次，即不能给两个元素命名同样的ID，但类是可以的 */
 .related-author {
   font-size: 18px;
+  /* 使文本加粗 */
+  font-weight: bold;
+}
+/* 在这个页面中，加上这个类的命名（其本质使段落标签p）,一共有3次对p的样式进行了设计，但是哪一个样式会被实际应用？
+ */
+
+/* ul {
+  列表样式，在此处即删除无序列表的点 
+  list-style: none;
+} */
+/* 类选择器。同样的，可以给相应的列表取类名进行消除序号标点 */
+.related {
+  list-style: none;
+}
+
+/* CSS定义颜色最传统的一种就是RGB值（分别是红色，绿色和蓝色），其分为三个值，每个值最大为255
+例如rgb(255, 0, 0)就是红色，因为第一个通道红色是满值，其余剩余的两个通道的值为0 ；
+青色rgb(0, 255, 255), 橙色rgb(244, 179, 63)*/
+/* 在CSS中除了有设置颜色的RGB外，还可以设置颜色的透明度，名为RGBA，即可以设置四个值
+例如rgba(0, 255, 255, 0.3), rgba(244, 179, 63, 0.7) */
+
+/* CSS中定义颜色的第二种方法是十六进制表示法
+例如 #f4b33f就是橙色，以及有不同调度的灰色例如 rgb(69, 69, 69) 或者 #444444(简写是#444)
+rgb(183, 183, 183) 或者 #b7b7b7 实质上十六进制表示法就是通过十六进制表示红绿蓝三个通道的数值 */
+
+/* 此外，一般当我们定义了颜色之后，点击颜色方框会出现VS代码颜色选择器进行颜色的选择，这是较为常用的方式 */
+
+.main-header {
+  background-color: #f7f7f7;
+}
+
+aside {
+  background-color: #f7f7f7;
+  /* border属性是一个特殊的属性，它可以接受多个值进行设置边框的大小，样式和颜色
+  solid是实线，dashed是线段虚线，dotted是点虚线 */
+  border-top: 5px solid #1098ad;
+  border-bottom: 5px solid #1098ad;
+  /* 同样的还有border-left和border-right */
+}
+
+/* body {
+  background-color: azure;
+} */
+
+/* 给列表的第一个元素去命名确实让其变成粗体字确实是一个方法，但是可以用伪类去让计算机自行计算一个容器种的第几个元素
+.first-li {
+  font-weight: bold;
+} */
+
+/* 使用伪类，在这里的应用就是选择所有的li元素，然后取其的第一个元素 */
+li:first-child {
   font-weight: bold;
 }
 
-/* ul {
-  list-style: none;
+/* 最后一个孩子 */
+li:last-child {
+  font-style: italic;
+}
+
+/* 选择第几个孩子，例如在括号里面填odd（奇数）即选择排位在奇数的孩子，同样的even就是选择偶数位的孩子 */
+/* li:nth-child(2) {
+  color: red;
 } */
 
-.related {
-  list-style: none;
+/* 下面来解释一下可能会对伪类的工作方式的一些误解
+本意是想让在article的第一个p元素里面的内容颜色改为红色，但是可以返回到html页面查看，article的第一个元素不是p所以不会起效 */
+/* article p:first-child {
+  color: red;
+} */
+/* 故上面这个例子就是想要告诉我们，在一个父容器里面，如果混合着多个不同的子元素，那么伪类就不是那么好工作
+所以伪类更适合用在一个父容器下都是相同子元素的情况，例如ul和ol */
+
+/* 用伪类设置链接或超链接的样式，可称为锚点的伪类 */
+/* 下面锚点的四个状态的设置都是有顺序的，即按如下顺序进行定义：链接，访问，悬停和活跃（简记方式LVHA） */
+/* 当只选择a这个标签时，无论a标签是否有href属性都会变色 */
+/* a {
+  color: red;
+} */
+
+/* a后面加上link这样通过伪类来定义样式，定义的是a标签种含有href属性，即只选择真正是链接和超链接的那些标签 */
+/* 在锚点元素中，伪类选择器的优先级高于基础的 */
+a:link {
+  color: #1098ad;
+  /* 通过设置文本装饰属性来删去链接的下划线 */
+  text-decoration: none;
+}
+
+/* 通常我们会发现，被点过的链接会显示不一样的颜色，我们可以通过伪类来设置被访问过后的链接颜色 */
+a:visited {
+  color: #1098ad;
+  /* 设置与未访问之前同样的颜色 */
+}
+
+/* 当我们的鼠标悬浮在a标签处时会有的样式 */
+a:hover {
+  color: orangered;
+  font-weight: bold;
+  /* 这个属性与边框属性看非常相似——即可以接受多个值（在这里就是接受多种装饰我们的文本）
+  同样的是可以忽略第二个值的，CSS会自动过滤识别到第二个值是颜色 */
+  text-decoration: underline orangered;
+}
+
+/* 当链接被点击时，下面这个伪类的样式就会编辑到对应元素种 */
+a:active {
+  background-color: black;
+  font-style: italic;
+}
+
+/* 当一个标签用多个选择器去设置了样式，所用选择器都会被运用，但时相同的样式设置最终的应用会根据以下优先级进行选择
+优先级：ID选择器 > 类选择器或伪类选择器 > 元素选择器（当各选择器拥有多个时，一般会应用最后一个） > （*）通用选择器 */
+/* 解决冲突样式——对页脚footer内容命名了一个ID和两个类名 */
+/* #copyright {
+  color: red;
+}
+.copyright {
+  color: blue;
+}
+.text {
+  color: yellow;
+} */
+/* 注意如果这里是写的footer的话，那么即使使用了important也是红色，因为继承的优先级是最低的 */
+/* footer p {
+  color: green !important;
+} */
+/* 会发现页脚是红色的，即ID选择器的优先级最高，若删除ID选择器的样式会是黄色，因为同级以最后一个为准 */
+
+/* 继承的知识（一部分在我们文件的首部在body部分） */
+/* nav a:link {
+  font-size: 18px;
+} */
+/* nav a:link,
+nav p {
+  font-size: 18px;
+} */
+
+.post-img {
+  width: 100%;
+  height: auto;
+}
+
+nav a:link {
+  /* background-color: orangered;
+  margin: 20px;
+  padding: 20px;
+
+  display: block; */
+
+  margin-right: 30px;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+nav a:link:last-child {
+  margin-right: 0;
+}
+
+button {
+  font-size: 22px;
+  padding: 20px;
+  cursor: pointer;
+
+  position: absolute;
+  /* top: 50px;
+  left: 50px; */
+  bottom: 50px;
+  right: 50px;
+}
+
+h1::first-letter {
+  font-style: normal;
+  margin-right: 5px;
+}
+
+h3 + p::first-line {
+  /* color: red; */
+}
+
+h2 {
+  /* background-color: orange; */
+  position: relative;
+}
+
+h2::before {
+  content: "TOP";
+  background-color: #ffe70e;
+  color: #444;
+  font-size: 16px;
+  font-weight: bold;
+  display: inline-block;
+  padding: 5px 10px;
+  position: absolute;
+  top: -10px;
+  right: -25px;
 }

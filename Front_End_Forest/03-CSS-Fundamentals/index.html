@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>The Basic Language of the Web: HTML</title>
-    <!-- 内嵌式CSS，与惠HTML元素分离，分散关注点 -->
+    <!-- 内嵌式CSS，与HTML元素分离，分散关注点 -->
     <!-- <style>
       h1 {
         color: blue;
@@ -11,6 +11,7 @@
     </style> -->
     <!-- 然而当HTML代码和css代码写在同一个文件使得文件特别长时，则可以将代码写入CSS文件以便阅读，即外链式 -->
     <link rel="stylesheet" href="./style.css" />
+    <!-- 许多人会将link理解为如标签a一样创建链接，但实际不是的，link是链接元素，但创建链接应该用锚点元素即a -->
   </head>
 
   <body>
@@ -23,17 +24,20 @@
     <h6>The Basic Language of the Web: HTML</h6>
     -->
 
-    <header>
+    <header class="main-header">
       <!-- 内连样式定义CSS，但一般不常用内连方式 -->
       <!-- <h1 style="color: blue">📘 The Code Magazine</h1> -->
       <h1>📘 The Code Magazine</h1>
 
       <nav>
+        <p>This is the navigation</p>
         <a href="blog.html">Blog</a>
         <a href="#">Challenges</a>
         <a href="#">Flexbox</a>
         <a href="#">CSS Grid</a>
       </nav>
+
+      <!-- <p>Test Paragraph</p> -->
     </header>
 
     <article>
@@ -47,7 +51,10 @@
           width="50"
         />
 
-        <p>Posted by <strong>Laura Jones</strong> on Monday, June 21st 2027</p>
+        <!-- 在现实中其实不怎么会使用id，一般会使用类，这样可以更好保证代码的可扩展性 -->
+        <p id="author">
+          Posted by <strong>Laura Jones</strong> on Monday, June 21st 2027
+        </p>
 
         <img
           src="img/post-img.jpg"
@@ -84,7 +91,7 @@
       <p>In HTML, each element is made up of 3 parts:</p>
 
       <ol>
-        <li>The opening tag</li>
+        <li class="first-li">The opening tag</li>
         <li>The closing tag</li>
         <li>The actual element</li>
       </ol>
@@ -106,7 +113,9 @@
       </p>
 
       <ul>
-        <li>To be able to use the fundamental web dev language</li>
+        <li class="first-li">
+          To be able to use the fundamental web dev language
+        </li>
         <li>
           To hand-craft beautiful websites instead of relying on tools like
           Worpress or Wix
@@ -122,7 +131,7 @@
     <aside>
       <h4>Related posts</h4>
 
-      <ul>
+      <ul class="related">
         <li>
           <img
             src="img/related-1.jpg"
@@ -131,12 +140,13 @@
             width="75"
           />
           <a href="#">How to Learn Web Development</a>
-          <p>By Jonas Schmedtmann</p>
+          <!-- 在取名时-和_连接多个词都是有效的，但在CSS中更加偏向用破折号 -->
+          <p class="related-author">By Jonas Schmedtmann</p>
         </li>
         <li>
           <img src="img/related-2.jpg" alt="Lightning" width="75" heigth="75" />
           <a href="#">The Unknown Powers of CSS</a>
-          <p>By Jim Dillon</p>
+          <p class="related-author">By Jim Dillon</p>
         </li>
         <li>
           <img
@@ -146,11 +156,16 @@
             height="75"
           />
           <a href="#">Why JavaScript is Awesome</a>
-          <p>By Matilda</p>
+          <p class="related-author">By Matilda</p>
         </li>
       </ul>
     </aside>
 
-    <footer>Copyright &copy; 2027 by The Code Magazine.</footer>
+    <footer>
+      <!-- 类名可以有很多个 -->
+      <p id="copyright" class="copyright text">
+        Copyright &copy; 2027 by The Code Magazine.
+      </p>
+    </footer>
   </body>
 </html>
